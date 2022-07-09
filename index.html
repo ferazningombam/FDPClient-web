@@ -1,0 +1,956 @@
+<html>
+
+<head>
+    <title>FDPClient | Website</title>
+    <meta charset="UTF-8">
+    <link href="/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./lib/mdui/mdui.min.css" />
+    <script src="./lib/mdui/mdui.min.js"></script>
+    <script src="./lib/jquery/jquery.min.js"></script>
+    <script src="./lib/swal/swal.min.js"></script>
+    <script src="./js/utils.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+
+</head>
+<body style="width:100%">
+    <div id="header">
+        <div class="bgs">
+        </div>
+        <div class="mdui-valign title page" style="opacity: 1;height: 100%;margin-top:10px">
+            <div class="mdui-center">
+                <h1 style="font-size: 45px;color:rgba(255,255,255,0.8);font-weight: 400;text-shadow: 0 0 8px rgba(0,0,0,0.07);">
+                    FDPClient.Club
+                </h1>
+            </div>
+        </div>
+        <div class="mdui-valign loading page" style="opacity: 0;height: 100%;">
+            <div class="mdui-center">
+                <h1 style="font-size: 45px;color:rgba(255,255,255,0.8);font-weight: 400;text-shadow: 0 0 8px rgba(0,0,0,0.07);">
+                    FDPClient.Club
+                </h1>
+                <div class="mdui-progress" style="opacity: 1;box-shadow: 0 0 5px rgba(0,0,0,0.08);width: 130%;margin-left: -15%;background:rgba(50,50,50,0.08);height: 13px;border-radius: 4px;">
+                    <div style="background:rgba(255,255,255,0.5);" class="mdui-progress-indeterminate"></div>
+                </div>
+            </div>
+        </div>
+    
+        <div class="mdui-valign mainmenu page" style="display: none!important;opacity: 0;height: 100%;margin-top:20px">
+            <!--<div class="modules">
+                <div id="bg-tooltip" mdui-tooltip="{content: 'Background'}" class="fixedIcon" onclick="goAction(3)">
+                    <span><i class="mdui-icon material-icons">image</i></span>
+                </div>
+                <div id="mods-tooltip" mdui-tooltip="{content: 'Mods'}" class="fixedIcon" onclick="goAction(4)">
+                    <span><i class="mdui-icon material-icons">view_module</i></span>
+                </div>
+                <div id="setting-tooltip" mdui-tooltip="{content: 'Setting'}" class="fixedIcon" onclick="goAction(5)">
+                    <span><i class="mdui-icon material-icons">settings</i></span>
+                </div>
+                <div id="quit-tooltip" mdui-tooltip="{content: 'Quit'}" class="fixedIcon" onclick="goAction(6)">
+                    <span><i class="mdui-icon material-icons">exit_to_app</i></span>
+                </div>
+            </div>
+    
+            <div class="changelog">
+                <div id="changelog-tooltip" mdui-tooltip="{content: 'ChangeLog'}" onclick="popUpdateInfo()" class="fixedIcon">
+                    <span><i class="mdui-icon material-icons">update</i></span>
+                </div>
+            </div>-->
+    
+            <div class="username">
+                %version% , Made by UnlegitMC & Web designed by XiGua
+            </div>
+            <div class="mdui-center">
+                <h1 style="opacity: 1;text-align: center;font-size: 45px;color:rgba(255,255,255,0.8);font-weight: 400;text-shadow: 0 0 8px rgba(0,0,0,0.07);">
+                    FDPClient.Club
+                </h1>
+                <h4 style="opacity: 1;text-align: center;font-size: 18px;color:rgba(255,255,255,0.8);font-weight: 400;text-shadow: 0 0 8px rgba(0,0,0,0.07);">
+                    For Chinese QQ Group: 912687006
+                </h4>
+                <!--<div id="download" mdui-tooltip="{content: '<versions></versions>', position: 'right'}" class="button" onclick="goAction(0)">
+                    <i class="mdui-icon material-icons" style="margin-bottom: 1px;margin-right: 25px;">file_download</i> <span style="margin-right: 25px;" id="single-button">Download Latest</span>
+                </div>-->
+                <div id="downloadBeta" mdui-tooltip="{content: 'FDPClient Github', position: 'right'}" class="button" onclick="goAction(5)">
+                    <i class="mdui-icon material-icons" style="margin-bottom: 1px;margin-right: 25px;">file_download</i> <span style="margin-right: 25px;" id="single-button">Download Release</span>
+                </div>
+                <div id="code" mdui-tooltip="{content: '<size></size>', position: 'right'}" class="button" onclick="window.open('https://github.com/UnlegitMC/FDPClient')">
+                    <i class="mdui-icon material-icons" style="margin-bottom: 1px;margin-right: 25px;">code</i> <span style="margin-right: 25px;" id="multi-button">Visit in Github</span>
+                </div>
+                <div id="discord" class="button" mdui-tooltip="{content: '<online></online>', position: 'right'}" onclick="goAction(2)">
+                    <i class="mdui-icon material-icons" style="margin-bottom: 1px;margin-right: 25px;">textsms</i> <span style="margin-right: 25px;" id="alt-button">Talk in Discord</span>
+                </div>
+            </div>
+        </div>
+        <div class="mdui-dialog" id="log">
+            <div class="mdui-dialog-content" id="logs">Loading....</div>
+            <div class="mdui-dialog-actions">
+                <button class="mdui-btn mdui-ripple" mdui-dialog-close>ok</button>
+            </div>
+        </div>
+    </div>
+    <headers>
+        <div class="navbar bg-base-100">
+          <a class="btn btn-ghost normal-case text-xl">FDPClient Website</a>
+        </div>
+    </headers>
+    <div class="hero min-h-screen bg-base-200">
+      
+    </div>
+    <div class="hero min-h-screen bg-base-200">
+        <div id="BackgroundVideo">
+            <div class="video-wrapper">
+                <iframe id="video-iframe" title="Showcase video" frameborder="0" src="https://www.youtube-nocookie.com/embed/wGgWw0JxTnE?controls=0&amp;showinfo=0&amp;rel=0&amp;autoplay=1&amp;loop=1&amp;mute=1"></iframe>
+            </div>
+        </div>
+      <div class="hero-content text-center">
+        <div class="max-w-md">
+          <h1 class="text-5xl font-bold" style="color:rgba(255,255,255,0.9);text-shadow:0 0 10px rgba(0,0,0,0.15);">FDPClient</h1>
+          <p class="py-6" style="color:rgba(255,255,255,0.9);text-shadow:0 0 5px rgba(0,0,0,0.15);">A Minecraft 1.8 utility mod</p>
+          <a class="btn btn-primary" href="#header">Get Started</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero min-h-screen bg-base-200">
+      <section class="feature-area section-gap" id="secvice">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-60 col-lg-8">
+						    <br><br><br><br><br><br><br><br>
+						    <center>
+    							<h1 class="text-5xl font-bold" style="color:#474747;text-shadow:0 0 10px rgba(0,0,0,0.15);">What is FDPClient?</h1>
+                                <p class="py-6" style="color:#474747;text-shadow:0 0 10px rgba(0,0,0,0.15);">FDPClient is a so-called hacked client for the game Minecraft. Using such a client gives you significant advantages over other players. Unlike most alternatives, FDPClient is completely free, open source and compatible with Forge.</p>
+                            </center>
+						</div>
+					</div>		
+					<style>
+						.single-feature:hover {
+						    box-shadow: 0 0 30px rgb(0 0 0 / 35%);
+						}
+						.row div * {
+						    font-weight: 300;
+						}
+						.is-sticky .default-header{
+							background-color:#00000087!important;
+						}
+						.navbar-nav a:hover {
+						    color: #ffffff;
+						    font-size: 16px;
+						}
+						.xgnav:hover {
+							transition: height 0.5s!important;
+    						height: 65px;
+						}
+						.xgnav *{
+							transition: all 0.5s!important;
+							font-weight: 300!important;
+						}
+						.xgnav{
+							transition: all 0.5s!important;
+						    background-color: #00000038;
+						    backdrop-filter: blur(10px);
+						}
+						.row div {
+						    border-radius: 15px;
+						}
+					</style>
+					<div class="row">
+						<div class="col-lg-4 col-md-6 ">
+							<div class="single-feature mb-30">
+								<div class="titleheadd-flex flex-row pb-20">
+									<span class="lnr lnr-user"></span>
+									<h4><a href="#">Excellent Developments</a></h4>
+								</div>
+								<p>We are constantly trying to improve FDPClient by adding new features, modules and bypasses. Our goal is to develop the perfect client completely free of charge.The following are our main developers.
+									Co丶Dynamic<br>
+                                    Liulihaocai<br>
+                                    kawaiinekololis<br>
+                                    opZywl<br> 
+                                    FengXiao<br>
+                                    XiGuaHanHan<br>
+                                    CuteStarX<br>
+                                    Insane8455<br>
+								</p>							
+							</div>							
+						</div>
+						<div class="col-lg-4 col-md-6 ">
+							<div class="single-feature mb-30">
+								<div class="titleheadd-flex flex-row pb-20">
+									<h4><a href="#">Perfect Bypass</a></h4>
+								</div>
+								<p>
+									Due to LiquidBounce's excellent high degree of customization, FDPClient can bypass:<br>
+									BlocksMC<br>
+									Hypixel<br>
+									hyCraft<br>
+									RedeSky<br>
+									AAC5 and earlier<br>
+									Verus<br>
+									NCP and other branches<br>
+									Matrix
+								</p>							
+							</div>							
+						</div>
+						<div class="col-lg-4 col-md-6 ">
+							<div class="single-feature mb-30">
+								<div class="titleheadd-flex flex-row pb-20">
+									<h4><a href="#">Rich features</a></h4>
+								</div>
+								<p>
+									There are many types of modules in FDPClient. Such as:<br>
+									Combat<br>
+									Movement<br>
+									Player<br>
+									World<br>
+									Client<br>
+									Render<br>
+									Exploit<br>
+									Misc
+								</p>							
+							</div>							
+						</div>
+						<div class="col-lg-4 col-md-6 ">
+							<div class="single-feature mb-30">
+								<div class="titleheadd-flex flex-row pb-20">
+									<h4><a href="#">beautiful visual</a></h4>
+								</div>
+								<p>
+									FDPClient have 25+ visual modules
+								</p>							
+							</div>							
+						</div>
+						<div class="col-lg-4 col-md-6 ">
+							<div class="single-feature mb-30">
+								<div class="titleheadd-flex flex-row pb-20">
+									<h4><a href="#">Highly Customizable</a></h4>
+								</div>
+								<p>
+									FDPClient allows you to customize the HUD according to your personal needs. So if you don't like the standard design, you can easily customize it to your exact needs.
+								</p>							
+							</div>							
+						</div>
+						<div class="col-lg-4 col-md-6 ">
+							<div class="single-feature mb-30">
+								<div class="titleheadd-flex flex-row pb-20">
+									<h4><a href="#">Free Download</a></h4>
+								</div>
+								<p>
+									We think quality does not have to be expensive and that is why we are offering LiquidBounce for free. No hidden costs, no premium features. Just go ahead and download the client.
+								</p>							
+							</div>							
+						</div>	
+					</div>
+				</div>	
+			</section><br><br><br>
+    </div>
+    <div class="hero min-h-screen bg-base-200">
+      <section class="feature-area section-gap" id="secvice">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-60 col-lg-8">
+						    <br><br><br><br><br><br><br><br>
+						    <center>
+    							<h1 class="text-5xl font-bold" style="color:#474747;text-shadow:0 0 10px rgba(0,0,0,0.15);">Config Maker</h1>
+                                <p class="py-6" style="color:#474747;text-shadow:0 0 10px rgba(0,0,0,0.15);">In FDPClient community, there are many great config makers who provide config stable bypasses<br>You can find them in Discord.</p>
+                            </center>
+						</div>
+					</div>		
+					<style>
+						.single-feature:hover {
+						    box-shadow: 0 0 30px rgb(0 0 0 / 35%);
+						}
+						.row div * {
+						    font-weight: 300;
+						}
+						.is-sticky .default-header{
+							background-color:#00000087!important;
+						}
+						.navbar-nav a:hover {
+						    color: #ffffff;
+						    font-size: 16px;
+						}
+						.xgnav:hover {
+							transition: height 0.5s!important;
+    						height: 65px;
+						}
+						.xgnav *{
+							transition: all 0.5s!important;
+							font-weight: 300!important;
+						}
+						.xgnav{
+							transition: all 0.5s!important;
+						    background-color: #00000038;
+						    backdrop-filter: blur(10px);
+						}
+						.row div {
+						    border-radius: 15px;
+						}
+					</style>
+					<div class="row" >
+						<div class="col-lg-4 col-md-6 ">
+							<div class="single-feature mb-30">
+								<div class="titleheadd-flex flex-row pb-20">
+									<span class="lnr lnr-user"></span>
+									<h4><a href="#">XLittleLeft#7638</a></h4>
+								</div>
+								<p>FDPClient / Novoline / Sparkling Water config maker<br>
+									Good at bypass: Hypixel BlocksMC HuaYuTing</p>							
+							</div>							
+						</div>
+						<div class="col-lg-4 col-md-6 ">
+							<div class="single-feature mb-30">
+								<div class="titleheadd-flex flex-row pb-20">
+									<h4><a href="#">PetitYui#1639</a></h4>
+								</div>
+								<p>
+								    FDPClient / Novoline / Flux / Astolfo / Rise / Tenacity / Noteless config maker<br>
+									Good at bypass: Hypixel BlocksMC
+								</p>							
+							</div>							
+						</div>
+						<div class="col-lg-4 col-md-6 ">
+							<div class="single-feature mb-30">
+								<div class="titleheadd-flex flex-row pb-20">
+									<h4><a href="#">MengYan#2310</a></h4>
+								</div>
+								<p>
+									FDPClient config maker<br>
+									Good at bypass: Hypixel BlocksMC HuaYuTing
+								</p>							
+							</div>							
+						</div>
+						<div class="col-lg-4 col-md-6 ">
+							<div class="single-feature mb-30">
+								<div class="titleheadd-flex flex-row pb-20">
+									<h4><a href="#">Aiden_jk#2936</a></h4>
+								</div>
+								<p>
+									FDPClient / Moon / lime config maker<br>
+									Good at bypass: BlocksMC Vulcan Hypixel<br>
+									Provider of the video above.
+								</p>							
+							</div>							
+						</div>
+						<div class="col-lg-4 col-md-6 ">
+							<div class="single-feature mb-30">
+								<div class="titleheadd-flex flex-row pb-20">
+									<h4><a href="#">Dimples1337#7490</a></h4>
+								</div>
+								<p>
+									FDPClient / Noteless / Flux / Vape Config maker<br>
+                                    Good At Bypass : HuaYuTing BlocksMC
+
+								</p>							
+							</div>							
+						</div>
+						<!--
+						<div class="col-lg-4 col-md-6 ">
+							<div class="single-feature mb-30">
+								<div class="titleheadd-flex flex-row pb-20">
+									<h4><a href="#">David.#9166</a></h4>
+								</div>
+								<p>
+									FDPClient have 25+ visual modules
+								</p>							
+							</div>							
+						</div>
+							-->
+					</div>
+				</div>	
+			</section><br><br><br>
+    </div>
+    <div class="hero min-h-screen bg-base-200">
+      <section class="feature-area section-gap" id="secvice">
+				<div class="container">
+					<div class="row d-flex justify-content-center">
+						<div class="menu-content pb-60 col-lg-8">
+						    <br><br><br><br><br><br><br><br>
+						    <center>
+    							<h1 class="text-5xl font-bold" style="color:#474747;text-shadow:0 0 10px rgba(0,0,0,0.15);">Videos</h1>
+                                <p class="py-6" style="color:#474747;text-shadow:0 0 10px rgba(0,0,0,0.15);">Excellent clients do not need to be hidden, there are many excellent video creators in the FDPClient community.</p>
+                            </center>
+						</div>
+					</div>		
+					<style>
+						.single-feature:hover {
+						    box-shadow: 0 0 30px rgb(0 0 0 / 35%);
+						}
+						.row div * {
+						    font-weight: 300;
+						}
+						.is-sticky .default-header{
+							background-color:#00000087!important;
+						}
+						.navbar-nav a:hover {
+						    color: #ffffff;
+						    font-size: 16px;
+						}
+						.xgnav:hover {
+							transition: height 0.5s!important;
+    						height: 65px;
+						}
+						.xgnav *{
+							transition: all 0.5s!important;
+							font-weight: 300!important;
+						}
+						.xgnav{
+							transition: all 0.5s!important;
+						    background-color: #00000038;
+						    backdrop-filter: blur(10px);
+						}
+						.row div {
+						    border-radius: 15px;
+						}
+					</style>
+					<div class="row" >
+						<!--<div class="col-lg-4 col-md-6 ">
+							<iframe width="560" height="315" src="https://www.youtube.com/embed/axsXpnNe7VU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>						
+						</div>-->
+						<div class="col-lg-4 col-md-6 ">
+							<div class="mb-30" style="overflow: hidden;box-shadow: 0 0 30px rgba(0,0,0,0.2);border-radius:20px">
+								<iframe src="https://www.youtube.com/embed/axsXpnNe7VU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="width: 100%;height: 100%;" allowfullscreen></iframe>							
+							</div>							
+						</div>
+						
+						<div class="col-lg-4 col-md-6 ">
+							<div class="mb-30" style="overflow: hidden;box-shadow: 0 0 30px rgba(0,0,0,0.2);border-radius:20px">
+								<iframe src="https://www.youtube.com/embed/L436I0m8Nzs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="width: 100%;height: 100%;" allowfullscreen></iframe>							
+							</div>							
+						</div>
+						
+						<div class="col-lg-4 col-md-6 ">
+							<div class="mb-30" style="overflow: hidden;box-shadow: 0 0 30px rgba(0,0,0,0.2);border-radius:20px">
+								<iframe src="https://www.youtube.com/embed/wGgWw0JxTnE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="width: 100%;height: 100%;" allowfullscreen></iframe>							
+							</div>							
+						</div>
+						<!--
+						<div class="col-lg-4 col-md-6 ">
+							<div class="single-feature mb-30">
+								<div class="titleheadd-flex flex-row pb-20">
+									<h4><a href="#">Dimples1337#7490</a></h4>
+								</div>
+								<p>
+									FDPClient / Noteless / Flux / Vape Config maker<br>
+                                    Good At Bypass : HuaYuTing BlocksMC
+
+								</p>							
+							</div>							
+						</div>
+						<!--
+						<div class="col-lg-4 col-md-6 ">
+							<div class="single-feature mb-30">
+								<div class="titleheadd-flex flex-row pb-20">
+									<h4><a href="#">David.#9166</a></h4>
+								</div>
+								<p>
+									FDPClient have 25+ visual modules
+								</p>							
+							</div>							
+						</div>
+							-->
+					</div>
+				</div>	
+			</section><br><br><br>
+    </div>
+    
+    <script>
+        
+            // function add(a) {
+            //     $(document.body).append("<script>" + a + "<\/script>");
+            // }
+            // var ase, aza;
+            // $(".fixedIcon").click(function(b) {
+            //     if ($(this).attr("event") != "log") {
+            //         add($(this).attr("event"));
+            //         $("#mojang").css("display", "block");
+            //         $(".mainmenu").css("margin-top", "-20px");
+            //         setTimeout(function() {
+            //             $("#mojang").css("opacity", "1");
+            //         }, 50);
+            //     }
+            // });
+
+        function loading() {
+            $(".title").css("margin-top", "-7px");
+            setTimeout(function() {
+                $(".title").css("opacity", "0");
+                $(".loading").css("opacity", "1");
+            }, 450);
+        }
+        loading();
+        function loaded() {
+            $(".loading").css("margin-top", "-15px");
+            $(".loading").css("opacity", "0");
+            $(".title").css("opacity", "0");
+            $(".title").css("margin-top", "-15px");
+            setTimeout(function() {
+                $(".mainmenu").css("display", "block");
+                $("size").html("<img src='https://img.shields.io/github/languages/code-size/UnlegitMC/FDPClient'>");
+            }, 400);
+            setTimeout(function() {
+                $(".mainmenu").css("opacity", "1");
+                $(".mainmenu").css("margin-top", "0px");
+            }, 450);
+        }
+        // setTimeout(function() {
+        //     $("#mojang").css("opacity", "0");
+        //     setTimeout(function() {
+        //         $("#mojang").css("display", "none");
+        //         loading();
+        //         setTimeout(function() {
+        //             loaded();
+        //         }, 1500);
+        //     }, 500);
+        // }, 500);
+        // loading();
+        function findBuilded(data2){
+            for(var i=0;i<data2.workflow_runs.length;i++){
+                if(data2.workflow_runs[i].name=="build"){
+                    return [data2.workflow_runs[i].head_commit.id,data2.workflow_runs[i].id];
+                }
+            }
+        }
+        function err(){
+            alert("Encountered an error, please try again or contact the developer!")
+        }
+        var latestVersion="Watting...";
+        var FDPDisOnline="Watting...";
+        var relaseVer="Watting...";
+        var disinv="Watting...";
+        var changelog="Watting...";
+        var lastworkerid="Watting...";
+        var latestRelease="Watting...";
+        var loadedTick=0;
+        function checkUpdate() {
+            $.get("https://api.github.com/repos/UnlegitMC/FDPClient/releases/latest", function(data) {
+                latestRelease=data.html_url;
+                relaseVer = data.name;
+            }).error(function(){
+                err();
+            });
+            $.get("https://api.github.com/repos/UnlegitMC/FDPClient/actions/runs", function(data2) {
+                    var pre = findBuilded(data2)[0];
+                    lastworkerid=findBuilded(data2)[1];
+                    $("#titleVer").html("git-"+pre.substring(0,6));
+                    loadedTick++;
+                }).error(function(){
+                    err();
+                });
+            $.get("https://discordapp.com/api/guilds/899275378760245278/widget.json", function(data) {
+                FDPDisOnline=data.presence_count;
+                disinv=data.instant_invite;
+                $("#discord").attr("onclick","window.open('"+disinv+"')")
+            }).error(function(){
+                err();
+            });
+            $.get("https://img.shields.io/github/languages/code-size/UnlegitMC/FDPClient", function(data) {
+                loadedTick++;
+            }).error(function(){
+                err();
+            });
+            /*if (LiquidBounce.CLIENT_VERSION != LiquidBounce.CLIENT_REAL_VERSION)
+                return
+
+            function verCheck() {
+                if (GuiMainMenu.updateVersion != LiquidBounce.CLIENT_VERSION) {
+                    $(".username").html($(".username").html().replace(LiquidBounce.CLIENT_VERSION, LiquidBounce.CLIENT_VERSION + " -> " + GuiMainMenu.updateVersion))
+                        .mousedown(function(e) {
+                            popUpdateInfo()
+                        });
+                    if (!GuiMainMenu.cancelledUpdate)
+                        popUpdateInfo()
+                }
+            }
+
+            if (GuiMainMenu.updateVersion != null) {
+                verCheck()
+                return
+            }
+
+            $.get("https://api.github.com/repos/UnlegitMC/FDPClient/releases/latest", function(data) {
+                GuiMainMenu.updateVersion = String(data.tag_name)
+                GuiMainMenu.updateMessage = String(data.body)
+                verCheck()
+            });*/
+        }
+
+        function popUpdateInfo() {
+            console.log("POP")
+            swal({
+                title: "Select version to download",
+                text: latestVersion.replace("<br>"," | "),
+                icon: "info",
+                buttons: true,
+                buttons: ["Preview", "Releases"]
+            }).then((value) => {
+                if (value==1) {
+                    window.open(latestRelease);
+                }else{
+                    if(lastworkerid!="Watting..."){
+                        window.open("https://nightly.link/UnlegitMC/FDPClient/actions/runs/"+lastworkerid+"/FDPClient.zip")
+                        //alert("You need login Github to download!\n你需要登录Github才能下载!");
+                        //window.open("https://github.com/UnlegitMC/FDPClient/actions/runs/"+lastworkerid)
+                    }else{
+                        alert("Error to download this version!");
+                    }
+                }
+            });
+        }
+
+        function show() {
+            var logs = $("#logs");
+            logs.html("Changelog of " + GuiMainMenu.updateVersion + "<hr>");
+            logs.append(GuiMainMenu.updateMessage.replace(/\n/g, "<br>"));
+        }
+
+        function fn3() {
+            var r = Math.floor(Math.random() * 256);
+            var g = Math.floor(Math.random() * 256);
+            var b = Math.floor(Math.random() * 256);
+            return "rgb(" + r + ',' + g + ',' + b + ")";
+        }
+
+        // this seems not working
+        rainbow();
+
+        function rainbow() {
+            $(".bgs").css("filter", "brightness(1.1) drop-shadow(0 0 " + fn3() + ")");
+            setTimeout("rainbow();", 3000);
+        }
+
+        document.onselectstart = function() {
+            return false
+        }
+        function goAction(i){
+            if(i==0){
+                popUpdateInfo();
+            }
+            if(i==5){
+                window.open("https://github.com/UnlegitMC/FDPClient/releases");
+            }
+            /*    $(".mainmenu").css("opacity", "0");
+                $(".mainmenu").css("margin-top", "-50px");
+            setTimeout(function() {
+                $(".mainmenu").css("display", "none");
+                GuiMainMenu.action(i);
+            }, 450);*/
+        }
+        function initPageElements() {
+            document.body.scrollTop=0;
+            $(".username").html($(".username").html().replace("%version%", latestVersion));
+
+            /*function tooltipAttr(key, content) {
+                $("#" + key + "-tooltip").attr("mdui-tooltip", JSON.stringify({
+                    content: translate("%" + content + "%")
+                }))
+            }
+
+            function buttonName(key, content) {
+                $("#" + key + "-button").html(translate("%" + content + "%"))
+            }*/
+        }
+        $("headers").css("top","-64px");
+        $(document).scroll(function(){
+            if((window.scrollY/document.body.clientHeight)<=1){
+                $("headers").css("top",(64*(((window.scrollY/document.body.clientHeight))))-64+"px");
+            }else{
+                $("headers").css("top","0px");
+            
+            }
+            
+            if((window.scrollY/document.body.clientHeight)<=1){
+                $(".page").css("transform","rotateX("+(180*(((window.scrollY/document.body.clientHeight))))+"deg) scale("+(1-(window.scrollY/document.body.clientHeight))+")");
+                $(".page").css("border-radius",30*(((window.scrollY/document.body.clientHeight)))+"px");
+                $(".bgs").css("border-radius",200*(((window.scrollY/document.body.clientHeight)))+"px");
+                $(".bgs").css("transform","scale("+(1-(window.scrollY/document.body.clientHeight))+")");
+                $(".page").css("top",-1*(window.scrollY/document.body.clientHeight)*document.body.clientHeight);
+            }
+            //$(".bgs").css("top",-1*(window.scrollY/document.body.clientHeight)*document.body.clientHeight);
+        })
+        function loop(){
+            if(loadedTick==2){
+                loaded();
+                initPageElements();
+                loadedTick=4;
+            }
+            $("versions").html(latestVersion);
+            $("online").html("Discord Online: "+FDPDisOnline);
+            if($("size").html()!='<img src="https://img.shields.io/github/languages/code-size/UnlegitMC/FDPClient">'){
+                $("size").html("<img src='https://img.shields.io/github/languages/code-size/UnlegitMC/FDPClient'>");
+            }
+            setTimeout("loop();", 100);
+        }
+        
+        document.body.scrollTop=0;
+        $(document).ready(function(){
+            setTimeout(function() {
+                loop();
+                document.body.scrollTop=0;
+                checkUpdate();
+            }, 460);
+        })
+    </script>
+    <style>
+        .single-feature:hover a, .single-feature:hover .titlehead.lnr {
+            color: #fff;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: -15px;
+            margin-left: -15px;
+        }
+        headers{
+            transition: all 0.5s;
+            z-index: 100;
+            position: fixed;
+            top:0;
+            left: 0;
+            width: 100%;
+            box-shadow: 0 0 30px rgba(0,0,0,0.2);
+        }
+        headers .navbar {
+            color: #2096F3;
+            backdrop-filter: blur(10px);
+        }
+        .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col, .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm, .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md, .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg, .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl, .col-xl-auto {
+            position: relative;
+            width: 100%;
+            min-height: 1px;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+        .titleheadd-flex a{
+            font-size: 30px!important;
+        }
+        .single-feature:hover {
+            cursor: pointer;
+            color: #fff;
+        }
+        .p1-gradient-bg, .primary-btn, .primary-btn2:hover, .single-feature:hover, .video-area .overlay-bg, .single-footer-widget .click-btn, .generic-banner {
+            background-image: -moz-linear-gradient(0deg,#b21aff 0%,#732bde 100%);
+            background-image: -webkit-linear-gradient(0deg,#b21aff 0%,#732bde 100%);
+            background-image: -ms-linear-gradient(0deg,#b21aff 0%,#732bde 100%);
+        }
+        .row div {
+            border-radius: 15px;
+        }
+        .row div * {
+            font-weight: 300;
+        }
+        .single-feature {
+            background-color: #ffffffc4;
+            padding: 30px 30px 30px;
+            -webkit-transition: all .3s ease 0s;
+            -moz-transition: all .3s ease 0s;
+            -o-transition: all .3s ease 0s;
+            transition: all .3s ease 0s;
+        }
+        .mb-30 {
+            margin-bottom: 30px;
+        }
+        @media (min-width: 768px){
+            .col-md-6 {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+        }
+        @media (min-width: 992px){
+            .col-lg-4 {
+                flex: 0 0 33.33333%;
+                max-width: 33.33333%;
+            }
+        }
+        .video-wrapper{
+            position: relative;
+            overflow: hidden;
+            width: 100vw;
+            height: calc(100vh - 43px);
+            box-shadow: 0 3px 20px 20px rgb(0 0 0 / 18%);
+            pointer-events: none;
+        }
+        #BackgroundVideo{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 100vh;
+            transform: translate(-50%,-50%);
+            opacity: .45;
+        }
+        .pb-20 {
+            padding-bottom: 10px;
+        }
+        #mojang {
+            transition: all 0.5s;
+            z-index: 999999;
+            width: 100%;
+            position: fixed;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 1;
+            background: #fff;
+        }
+        
+        #log,
+        #update {
+            width: 80%;
+            height: 80%;
+            top: 10%;
+            border-radius: 10px;
+        }
+        
+        .username {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 18px;
+            font-weight: 300;
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            text-shadow: 0 0 5px rgba(50, 50, 50, 0.1);
+        }
+        
+        .changelog {
+            position: absolute;
+            top: 0;
+            left: 20px;
+        }
+        
+        .modules {
+            position: absolute;
+            top: 0;
+            right: 10px;
+        }
+        .page *{
+            transition: all 0.5s;
+        }
+        .fixedIcon {
+            background: rgba(255, 255, 255, 0.7);
+            margin-right: 10px;
+            margin-top: 20px;
+            padding: 10px;
+            display: inline-block;
+            border-radius: 100px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s;
+            text-align: center;
+        }
+        
+        .fixedIcon:hover {
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .button {
+            backdrop-filter: blur(10px);
+            height: 45px;
+            min-width: 200px;
+            width: 250px;
+            margin: 15px;
+            border: solid 1px rgba(255, 255, 255, 0.4);
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(50, 50, 50, 0.08);
+            line-height: 45px;
+            transition: all 0.5s;
+            bottom: 0px;
+            position: relative;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.7);
+        }
+        
+        .button:hover {
+            backdrop-filter: blur(10px);
+            bottom: 5px;
+            border: solid 1px rgba(255, 255, 255, 0.5);
+            border-radius: 9px;
+            box-shadow: 0 0 8px rgba(50, 50, 50, 0.19);
+            line-height: 45px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .page {
+            transition: all 0.1s;
+            float: left;
+            width: 100%;
+            z-index: 2;
+            position: fixed;
+            top: 0;
+        }
+        
+        .mdui-progress-indeterminate::before {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            border-radius: 3px;
+            background-color: inherit;
+            -webkit-animation: mdui-progress-indeterminate 3.5s linear infinite;
+            animation: mdui-progress-indeterminate 3.53s linear infinite;
+            content: ' ';
+            will-change: left, width;
+        }
+        
+        .mdui-progress-indeterminate::after {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            border-radius: 3px;
+            background-color: inherit;
+            -webkit-animation: mdui-progress-indeterminate-short 3.5s linear infinite;
+            animation: mdui-progress-indeterminate-short 3.5s linear infinite;
+            content: ' ';
+            will-change: left, width;
+        }
+        
+        .bgs {
+            transition: all 0.1s,filter 5s;
+            background-image: url("img/blue.png");
+            filter: brightness(1.1);
+            content: '';
+            pointer-events: none;
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            background-position: 0% 0%;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        #header{
+            
+        }
+        --tw-prose-body: hsla(var(--bc)/.8);
+        --tw-prose-headings: hsl(var(--bc));
+        --tw-prose-lead: hsl(var(--bc));
+        --tw-prose-links: hsl(var(--bc));
+        --tw-prose-bold: hsl(var(--bc));
+        --tw-prose-counters: hsl(var(--bc));
+        --tw-prose-bullets: hsla(var(--bc)/.5);
+        --tw-prose-hr: hsla(var(--bc)/.2);
+        --tw-prose-quotes: hsl(var(--bc));
+        --tw-prose-quote-borders: hsla(var(--bc)/.2);
+        --tw-prose-captions: hsla(var(--bc)/.5);
+        --tw-prose-code: hsl(var(--bc));
+        --tw-prose-pre-code: hsl(var(--nc));
+        --tw-prose-pre-bg: hsl(var(--n));
+        --tw-prose-th-borders: hsla(var(--bc)/.5);
+        --tw-prose-td-borders: hsla(var(--bc)/.2);
+    </style>
+    <footer class="footer footer-center p-4 bg-base-300 text-base-content">
+        
+						<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="100%" height="52" src="//music.163.com/outchain/player?type=2&amp;id=423314146&amp;auto=1&amp;height=32"></iframe>
+      <div>
+        <p>Copyright © 2022 - All right reserved by UnlegitMC</p>
+      </div>
+    </footer>
+</body>
+
+</html>
